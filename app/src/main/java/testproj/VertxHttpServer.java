@@ -25,7 +25,10 @@ public class VertxHttpServer extends AbstractVerticle {
 			requestCtx.response().end("HELLO WORLD");
 			
 		});
-
+		router.route("/askme").handler( requestCtx -> {
+			requestCtx.response().end("HELLO WORLD AGAIN");
+			
+		});
 		
 		vertx.createHttpServer().requestHandler(router).listen(port, handler ->{
 			
