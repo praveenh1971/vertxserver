@@ -14,6 +14,7 @@ public class App {
     	 Vertx v =Vertx.vertx();
     	 ///HELLPE
     	 v.deployVerticle(new VertxHttpServer(3000));
+    	 v.deployVerticle(new PostgresServer());
     	 while (true);
     }
 }
