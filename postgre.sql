@@ -9,19 +9,18 @@ BEGIN;
 
 SET client_encoding = 'LATIN1';
 
-CREATE TABLE products {
+CREATE TABLE products (
 	id INT PRIMARY KEY NOT NULL,
 	name TEXT NOT NULL,
 	category TEXT NOT NULL,
 	price decimal(8, 2),
         specifications TEXT NOT NULL
+);
 
-};
-
-CREATE TABLE inventory {
+CREATE TABLE inventory (
 	productid INT NOT NULL,
 	qunatity integer NOT NULL
-};
+);
 
 COPY products(id, name, category, price , specifications) FROM stdin;
 1	Music System	Electronics	100.00	Bose Audio
