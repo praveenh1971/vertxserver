@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Properties;
+
+import com.fasterxml.jackson.annotation.PropertyAccessor;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Promise;
@@ -13,9 +16,14 @@ public class PostgresServer extends AbstractVerticle{
 	public void start(Promise<Void> startPromise) throws Exception {
 	    Connection c = null;
 	      try {
+	    	  String posgrehost=System.getProperty("POSTGRE_HOST", "postgre");
+	    	  String posgreport=System.getProperty("POSTGRE_PORT", "5432");
+	    	  System.out.println("posgreurl " + System.getProperty("POSTGRE_HOST"));
+	    	  System.out.println("posgreport " + System.getProperty("POSTGRE_PORT"));
+	    	  
 	         Class.forName("org.postgresql.Driver");
 	         c = DriverManager
-	            .getConnection("jdbc:postgresql://localhost:5432/world",
+	            .getConnection("jdbc:postgresql://" + posgrehost + ":" + posgreport +"/world",
 	            "postgres", "docker");
 	         
 	      } catch (Exception e) {

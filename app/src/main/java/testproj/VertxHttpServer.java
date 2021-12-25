@@ -1,5 +1,6 @@
 package testproj;
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Future;
 import io.vertx.core.Promise;
 import io.vertx.ext.web.Router;
 public class VertxHttpServer extends AbstractVerticle {
@@ -29,7 +30,9 @@ public class VertxHttpServer extends AbstractVerticle {
 			requestCtx.response().end("HELLO WORLD AGAIN");
 			
 		});
-		
+		router.route("/products").handler( requestCtx -> {
+			 
+		});
 		vertx.createHttpServer().requestHandler(router).listen(port, handler ->{
 			
 			if(handler.succeeded()){
