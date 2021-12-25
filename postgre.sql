@@ -26,7 +26,7 @@ COPY products(id, name, category, price , specifications) FROM stdin;
 1	Music System	Electronics	100.00	Bose Audio
 2	Lap Top High	Electronics	900.00	Dell 
 3	Shoes	Consumers	51.25	Nike
-4	Shirts	Apparels	12.25	Kohls	
+4	Shirts	Apparels	12.25	Kohls
 5	Pants	Apperels	55.33	Macys
 \.
 
